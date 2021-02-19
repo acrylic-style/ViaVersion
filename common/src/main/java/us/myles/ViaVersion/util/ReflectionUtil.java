@@ -97,6 +97,7 @@ public class ReflectionUtil {
             }
 
             for (Method method : host.getDeclaredMethods()) {
+                if (method.getDeclaringClass() == Object.class) continue;
                 method.setAccessible(true);
                 methods.put(method.getName(), method);
             }
